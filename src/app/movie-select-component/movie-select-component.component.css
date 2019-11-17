@@ -1,0 +1,12 @@
+mat-card {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+app-movie-details-component {
+    margin-top: 20px;
+}

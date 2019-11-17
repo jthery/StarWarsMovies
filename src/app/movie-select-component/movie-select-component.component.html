@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-title>SELECT MOVIE STARWARS</mat-card-title>
+  <mat-form-field>
+    <mat-label>Favorite movie</mat-label>
+    <mat-select [(ngModel)]="selectedFilm">
+      <mat-option *ngFor="let f of (films$ | async)" [value]="f">
+        {{f.title}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-stroked-button color="primary" (click)="onSelect(film)">Details Movie</button>
+</mat-card>
+
+
+<app-movie-details-component [film]="selectedFilm"></app-movie-details-component>
