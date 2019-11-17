@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FilmService } from '../../services/film.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { PeopleService } from '../../services/people.service';
 import { Observable } from 'rxjs';
-import { Film } from '../../models/film.model';
+import { People } from '../../models/people.model';
 
 @Component({
   selector: 'app-movie-characters-component',
@@ -9,17 +9,17 @@ import { Film } from '../../models/film.model';
   styleUrls: ['./movie-characters-component.component.css']
 })
 export class MovieCharactersComponentComponent implements OnInit {
+  p : People;
+  peoples$: Observable<People[]>
 
-  films$: Observable<Film[]>
-
-  constructor(private filmService: FilmService) { }
+  constructor(private peopleService: PeopleService) { }
 
   ngOnInit() {
     this.Characters();
   }
 
   Characters() {
-    this.films$ = this.filmService.getFilms();
+    this.peoples$ = this.peopleService.getPeoples();
   }
 
 }

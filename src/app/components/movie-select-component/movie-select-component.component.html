@@ -8,10 +8,9 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-stroked-button color="basic" (click)="onSelect()">Details Movie</button>
+  <button mat-stroked-button color="basic" (click)="toggle()">{{buttonName}}</button>
 </mat-card>
 
-<div id="container">
+<div id="container" *ngIf="show">
   <app-movie-details-component [film]="selectedFilm"></app-movie-details-component>
-  <app-movie-characters-component></app-movie-characters-component>
 </div>

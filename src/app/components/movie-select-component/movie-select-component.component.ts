@@ -9,7 +9,8 @@ import { Film } from '../../models/film.model';
   styleUrls: ['./movie-select-component.component.css']
 })
 export class MovieSelectComponentComponent implements OnInit {
-
+  public show:boolean = false;
+  public buttonName:any = 'Show';
   selectedFilm: string;
   films$: Observable<Film[]>;
 
@@ -20,8 +21,13 @@ export class MovieSelectComponentComponent implements OnInit {
     console.log(this.films$, 'herehere')
   }
 
-  onSelect() {
-    this.selectedFilm;
+  toggle() {
+    this.show = !this.show;
+
+    if(this.show)  
+      this.buttonName = "Hide";
+    else
+      this.buttonName = "Show";
   }
 
 }
