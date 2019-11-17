@@ -1,0 +1,12 @@
+<mat-card *ngIf="film">
+  <mat-card-header>
+    <mat-card-title>{{film.episode_id}} - {{film.title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    {{film.opening_crawl}}
+  </mat-card-content>
+  <mat-card-footer>
+   By: {{film.producer}}
+  Année de réalisation : {{film.release_date}}
+  </mat-card-footer>
+</mat-card>

@@ -1,0 +1,10 @@
+<div style="color: white">
+
+    movie-characters-component works!
+    <ul>
+        <li *ngFor="let f of (films$ | async)">
+            {{ f.characters }}
+        </li>
+    </ul>
+</div>
+

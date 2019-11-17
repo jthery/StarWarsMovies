@@ -1,0 +1,11 @@
+mat-card {
+    background-color: #343434;
+    width: 400px;
+    margin-right: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 40px;
+    color: white;
+}

@@ -8,9 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { MovieSelectComponentComponent } from './movie-select-component/movie-select-component.component';
-import { MovieDetailsComponentComponent } from './movie-details-component/movie-details-component.component';
-import { MovieCharactersComponentComponent } from './movie-characters-component/movie-characters-component.component';
+import { MovieSelectComponentComponent } from './components/movie-select-component/movie-select-component.component';
+import { MovieDetailsComponentComponent } from './components/movie-details-component/movie-details-component.component';
+import { MovieCharactersComponentComponent } from './components/movie-characters-component/movie-characters-component.component';
 
 @NgModule({
   declarations: [

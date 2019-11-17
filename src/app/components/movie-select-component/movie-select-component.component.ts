@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FilmService } from '../services/film.service';
+import { FilmService } from '../../services/film.service';
 import { Observable } from 'rxjs';
-import { Film } from '../models/film.model';
+import { Film } from '../../models/film.model';
 
 @Component({
   selector: 'app-movie-select-component',
@@ -9,6 +9,7 @@ import { Film } from '../models/film.model';
   styleUrls: ['./movie-select-component.component.css']
 })
 export class MovieSelectComponentComponent implements OnInit {
+
   selectedFilm: string;
   films$: Observable<Film[]>;
 
@@ -19,9 +20,8 @@ export class MovieSelectComponentComponent implements OnInit {
     console.log(this.films$, 'herehere')
   }
 
-
-  onSelect(film: string) {
-    this.selectedFilm = film;
-    console.log(film, this.selectedFilm, 'lalalal')
+  onSelect() {
+    this.selectedFilm;
   }
+
 }

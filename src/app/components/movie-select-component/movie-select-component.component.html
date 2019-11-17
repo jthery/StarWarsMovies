@@ -8,8 +8,10 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-stroked-button color="primary" (click)="onSelect(film)">Details Movie</button>
+  <button mat-stroked-button color="basic" (click)="onSelect()">Details Movie</button>
 </mat-card>
 
-
-<app-movie-details-component [film]="selectedFilm"></app-movie-details-component>
+<div id="container">
+  <app-movie-details-component [film]="selectedFilm"></app-movie-details-component>
+  <app-movie-characters-component></app-movie-characters-component>
+</div>
