@@ -11,16 +11,26 @@ import { Film } from '../../models/film.model';
 
 export class MovieSelectComponentComponent implements OnInit {
 
-  selectedFilm: string;
   films$: Observable<Film[]>;
+  selectedFilm: string;
   public film;
   public show:boolean = false;
   public buttonName:any = 'Show';
+  // showSpinner: boolean;
 
   constructor(private filmService: FilmService) { }
 
   ngOnInit() {
+    this.films();
+  }
+  
+  films() {
     this.films$ = this.filmService.getFilms();
+    // if(this.films$) {
+    //   this.showSpinner = false;
+    // } else {
+    //   this.showSpinner = true;
+    // }
   }
 
   toggle() {
