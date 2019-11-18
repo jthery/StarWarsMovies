@@ -13,9 +13,10 @@ export class MovieSelectComponentComponent implements OnInit {
 
   films$: Observable<Film[]>;
   selectedFilm: string;
+  message: string;
   public film;
-  public show:boolean = false;
-  public buttonName:any = 'Show';
+  public show: boolean = false;
+  public buttonName: any = 'Show';
   // showSpinner: boolean;
 
   constructor(private filmService: FilmService) { }
@@ -23,9 +24,9 @@ export class MovieSelectComponentComponent implements OnInit {
   ngOnInit() {
     this.films();
   }
-  
+
   films() {
-    this.films$ = this.filmService.getFilms();
+    this.filmService.getFilms().subscribe(data => this.handleSuccess(data), error => this.handleError(error));
     // if(this.films$) {
     //   this.showSpinner = false;
     // } else {
@@ -35,11 +36,19 @@ export class MovieSelectComponentComponent implements OnInit {
 
   toggle() {
     this.show = !this.show;
-    if(this.show)  
+    if (this.show)
       this.buttonName = "Hide";
     else
       this.buttonName = "Show";
-      this.film = this.selectedFilm;
+    this.film = this.selectedFilm;
   }
 
+  handleSuccess(data) {
+    this.message = 'Films StarWars'
+  }
+
+  handleError(error) {
+    this.message = 'Nous rencontrons un léger problème, je vous invite à réessayer plus tard'
+  }
+  
 }
