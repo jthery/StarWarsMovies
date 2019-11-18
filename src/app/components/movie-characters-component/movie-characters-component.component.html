@@ -1,18 +1,3 @@
-<!-- <mat-card>
-  <div style="color: white">
-    <ul>
-      <li >
-        {{ p.name }}
-        {{ p.birth_year }}
-        {{ p.gender }}
-        {{ p.height }}
-        {{ p.hair_color }}
-        {{ p.eye_color }}
-      </li>
-    </ul>
-  </div>
-</mat-card> -->
-
 <mat-card *ngFor="let p of (peoples$ | async)">
   <mat-card-header>
     <mat-card-title>Name : {{ p.name }}</mat-card-title>
