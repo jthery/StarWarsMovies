@@ -1,14 +1,13 @@
-<mat-card *ngIf="film">
+<mat-card *ngIf="filmDetails">
   <mat-card-header>
-    <mat-card-title>{{film.episode_id}} - {{film.title }}</mat-card-title>
+    <mat-card-title>{{filmDetails.episode_id}} - {{filmDetails.title }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    {{film.opening_crawl}}
+    {{filmDetails.opening_crawl}}
   </mat-card-content>
   <mat-card-footer>
-   By: {{film.producer}}
-  Année de réalisation : {{film.release_date}}
+   By: {{filmDetails.producer}}
+  Année de réalisation : {{filmDetails.release_date}}
   </mat-card-footer>
 </mat-card>
 
-<app-movie-characters-component></app-movie-characters-component>

@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { People } from '../models/people.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PeopleService {
-
-  url = 'https://swapi.co/api/people';
   
-  constructor(private http: HttpClient) {}
+  listPeople: People[] = [];
 
-  getPeoples(): Observable<People[]> {
-    return this.http.get<People[]>(`${this.url}`).pipe(map(data=> data['results']));
+  constructor(private http: HttpClient) { }
+
+  setListPeople(people: string[]) {
+    this.listPeople.length = 0;
+
+    people.forEach(url => {
+      this.http.get<People>(url).subscribe(
+        (response) => {
+          this.listPeople.push(response)
+        }
+      )
+    });
   }
+
 }

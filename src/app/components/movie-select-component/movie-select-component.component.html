@@ -1,9 +1,13 @@
-<mat-card>
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>
+
+<mat-card *ngIf="(films$ | async) as films; else loading">
   <mat-card-title>{{ message }}</mat-card-title>
   <mat-form-field>
     <mat-label>Favorite movie</mat-label>
     <mat-select [(ngModel)]="selectedFilm">
-      <mat-option *ngFor="let f of (films$ | async)" [value]="f">
+      <mat-option *ngFor="let f of films" [value]="f">
         {{f.title}}
       </mat-option>
     </mat-select>
@@ -12,5 +16,6 @@
 </mat-card>
 
 <div id="container" *ngIf="show">
-  <app-movie-details-component [film]="film"></app-movie-details-component>
+  <app-movie-details-component [filmDetails]="film"></app-movie-details-component>
+  <app-movie-characters-component></app-movie-characters-component>
 </div>

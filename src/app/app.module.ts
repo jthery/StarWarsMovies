@@ -8,16 +8,16 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { MovieSelectComponentComponent } from './components/movie-select-component/movie-select-component.component';
-import { MovieDetailsComponentComponent } from './components/movie-details-component/movie-details-component.component';
-import { MovieCharactersComponentComponent } from './components/movie-characters-component/movie-characters-component.component';
+import { MovieSelectComponent } from './components/movie-select-component/movie-select-component.component';
+import { MovieDetailsComponent } from './components/movie-details-component/movie-details-component.component';
+import { MovieCharactersComponent } from './components/movie-characters-component/movie-characters-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieSelectComponentComponent,
-    MovieDetailsComponentComponent,
-    MovieCharactersComponentComponent
+    MovieSelectComponent,
+    MovieDetailsComponent,
+    MovieCharactersComponent
   ],
   imports: [
     BrowserModule,

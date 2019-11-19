@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PeopleService } from '../../services/people.service';
-import { Observable } from 'rxjs';
 import { People } from '../../models/people.model';
 
 @Component({
@@ -8,18 +7,14 @@ import { People } from '../../models/people.model';
   templateUrl: './movie-characters-component.component.html',
   styleUrls: ['./movie-characters-component.component.css']
 })
-export class MovieCharactersComponentComponent implements OnInit {
-  p : People;
-  peoples$: Observable<People[]>
+
+export class MovieCharactersComponent implements OnInit {
+
+  people: People[];
 
   constructor(private peopleService: PeopleService) { }
 
   ngOnInit() {
-    this.Characters();
+    this.people = this.peopleService.listPeople;
   }
-
-  Characters() {
-    this.peoples$ = this.peopleService.getPeoples();
-  }
-
 }

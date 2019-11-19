@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FilmService } from '../../services/film.service';
 import { Observable } from 'rxjs';
 import { Film } from '../../models/film.model';
+import { PeopleService } from '../../services/people.service'
 
 @Component({
   selector: 'app-movie-select-component',
@@ -9,7 +10,7 @@ import { Film } from '../../models/film.model';
   styleUrls: ['./movie-select-component.component.css']
 })
 
-export class MovieSelectComponentComponent implements OnInit {
+export class MovieSelectComponent implements OnInit {
 
   films$: Observable<Film[]>;
   selectedFilm: string;
@@ -17,21 +18,16 @@ export class MovieSelectComponentComponent implements OnInit {
   public film;
   public show: boolean = false;
   public buttonName: any = 'Show';
-  // showSpinner: boolean;
 
-  constructor(private filmService: FilmService) { }
+  constructor(private filmService: FilmService, private peopleService: PeopleService) { }
 
   ngOnInit() {
     this.films();
   }
 
   films() {
-    this.filmService.getFilms().subscribe(data => this.handleSuccess(data), error => this.handleError(error));
-    // if(this.films$) {
-    //   this.showSpinner = false;
-    // } else {
-    //   this.showSpinner = true;
-    // }
+    this.films$ = this.filmService.getFilms();
+    this.films$.subscribe(data => this.handleSuccess(data), error => this.handleError(error));
   }
 
   toggle() {
@@ -41,6 +37,8 @@ export class MovieSelectComponentComponent implements OnInit {
     else
       this.buttonName = "Show";
     this.film = this.selectedFilm;
+
+    this.peopleService.setListPeople(this.film.characters);
   }
 
   handleSuccess(data) {
@@ -50,5 +48,5 @@ export class MovieSelectComponentComponent implements OnInit {
   handleError(error) {
     this.message = 'Nous rencontrons un léger problème, je vous invite à réessayer plus tard'
   }
-  
+
 }

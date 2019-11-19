@@ -6,9 +6,10 @@ import { Film } from '../../models/film.model';
   templateUrl: './movie-details-component.component.html',
   styleUrls: ['./movie-details-component.component.css']
 })
-export class MovieDetailsComponentComponent implements OnInit {
+export class MovieDetailsComponent implements OnInit {
 
-  @Input() film: Film;
+  @Input() filmDetails: Film;
+
   constructor() { }
 
   ngOnInit() { }
