@@ -9,7 +9,7 @@
 h1 {
   text-align: center;
   color: black;
-  text-shadow: 2px 0 0 blueviolet, 0 2px 0 blueviolet, 0 -2px 0 blueviolet, -2px 0 0 blueviolet, 2px 2px 0 blueviolet, 2px -2px 0 blueviolet, -2px 2px 0 blueviolet, -2px -2px 0 blueviolet;
+  text-shadow: 2px 0 0 #ffe81f, 0 2px 0 #ffe81f, 0 -2px 0 #ffe81f, -2px 0 0 #ffe81f, 2px 2px 0 #ffe81f, 2px -2px 0 #ffe81f, -2px 2px 0 #ffe81f, -2px -2px 0 #ffe81f;
 }
 
 #container-select {
@@ -17,27 +17,28 @@ h1 {
   display: flex;
   justify-content: center;
   box-shadow: none;
-  border-top: 1px solid rgb(63, 81, 181);
-  border-left: 1px solid rgb(63, 81, 181);
-  border-right: 1px solid rgb(63, 81, 181);
+  border-top: 1px solid #ffe81f;
+  border-left: 1px solid #ffe81f;
+  border-right: 1px solid #ffe81f;
   border-radius: 0;
-  background-color: rgb(206, 83, 46);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 #container-button {
-  background-color: rgb(206, 83, 46);
+  background-color: rgba(0, 0, 0, 0);
   text-align: center;
   width: 70%;
   padding: 0 16px 5px;
-  border-bottom: 1px solid rgb(63, 81, 181);
-  border-left: 1px solid rgb(63, 81, 181);
-  border-right: 1px solid rgb(63, 81, 181);
+  border-bottom: 1px solid #ffe81f;
+  border-left: 1px solid #ffe81f;
+  border-right: 1px solid #ffe81f;
 }
 
 #container-button button {
-  border: 1px solid rgb(63, 81, 181);
+  border: 1px solid #ffe81f;
   border-radius: 0;
   margin-bottom: 5px;
+  color: #ffe81f;
 }
 
 #container-select mat-form-field {
