@@ -1,8 +1,10 @@
-<mat-card *ngFor="let p of people">
-  <mat-card-header>
-    <mat-card-title>Name : {{ p.name }}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    Civility : {{ p.gender }} - Birthday year : {{ p.birth_year }} - {{ p.height }}cm - hair color : {{ p.hair_color }} - eye color : {{ p.eye_color }}
-  </mat-card-content>
-</mat-card>
+<div>
+  <mat-card *ngFor="let p of people">
+    <mat-card-header>
+      <mat-card-title>Name : {{ p.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      Civility : {{ p.gender }} - Birthday year : {{ p.birth_year }} - {{ p.height }}cm - hair color : {{ p.hair_color }} - eye color : {{ p.eye_color }}
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -3,6 +3,7 @@ import { FilmService } from '../../services/film.service';
 import { Observable } from 'rxjs';
 import { Film } from '../../models/film.model';
 import { PeopleService } from '../../services/people.service'
+import { resolve } from 'url';
 
 @Component({
   selector: 'app-movie-select-component',
@@ -17,32 +18,39 @@ export class MovieSelectComponent implements OnInit {
   message: string;
   public film;
   public show: boolean = false;
-  public buttonName: any = 'Show';
+  public button: boolean = false;
+  public loading: boolean = false;
 
   constructor(private filmService: FilmService, private peopleService: PeopleService) { }
 
   ngOnInit() {
+    console.log(this.loading, 'c\' est mon loading')
     this.films();
+    console.log(this.loading, 'c\'est mon loading false')
   }
 
   films() {
     this.films$ = this.filmService.getFilms();
-    this.films$.subscribe(data => this.handleSuccess(data), error => this.handleError(error));
+    this.loading = true;
+    new Promise((resolve, reject) => {
+      this.films$.subscribe(
+        data => { 
+          this.handleSuccess(data); 
+          resolve();
+      },
+       error => this.handleError(error));
+    }).then(() => this.loading = false);
   }
 
   toggle() {
     this.show = !this.show;
-    if (this.show)
-      this.buttonName = "Hide";
-    else
-      this.buttonName = "Show";
     this.film = this.selectedFilm;
-
     this.peopleService.setListPeople(this.film.characters);
   }
 
   handleSuccess(data) {
-    this.message = 'Films StarWars'
+    this.button = !this.button;
+    this.message = 'Tous les films ont bien été récupéré'
   }
 
   handleError(error) {

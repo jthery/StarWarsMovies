@@ -1,21 +1,32 @@
-<ng-template #loading>
-  <mat-spinner></mat-spinner>
-</ng-template>
+<div id="container">
+  <div id="container-message">
+    <h1>
+      {{message}}
+    </h1>
+  </div>
+  <mat-card id="container-select" *ngIf="(films$ | async) as films">
+    <mat-form-field>
+      <mat-select [(ngModel)]="selectedFilm" placeholder="Selectionner votre film">
+        <mat-option *ngFor="let f of films" [value]="f">
+          {{f.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card>
+  <div id="container-button">
+    <button mat-stroked-button color="primary" (click)="toggle()" *ngIf="button">Afficher</button>
+  </div>
+</div>
 
-<mat-card *ngIf="(films$ | async) as films; else loading">
-  <mat-card-title>{{ message }}</mat-card-title>
-  <mat-form-field>
-    <mat-label>Favorite movie</mat-label>
-    <mat-select [(ngModel)]="selectedFilm">
-      <mat-option *ngFor="let f of films" [value]="f">
-        {{f.title}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button mat-stroked-button color="basic" (click)="toggle()">{{buttonName}}</button>
-</mat-card>
 
-<div id="container" *ngIf="show">
+<div id="container-loading" *ngIf="loading">
+  <img class="rotate-center" src="../../../assets/images/dark-vador.png" alt="dark-vador">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div id="container-child" *ngIf="show">
+  <h1>Détails du film</h1>
   <app-movie-details-component [filmDetails]="film"></app-movie-details-component>
+  <h1>Détails des personnages jouant dans ce film</h1>
   <app-movie-characters-component></app-movie-characters-component>
 </div>

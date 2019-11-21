@@ -8,10 +8,5 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  display: flex;
-  justify-content: center;
-  /* background-image: url('https://media.idownloadblog.com/wp-content/uploads/2015/04/storm-trooper-starwars-illust-9-wallpaper.jpg'); */
-  /* max-width: 100%; */
-  /* height: auto;
-  background-size: cover; */
+  background: rgba(0, 0, 0, 0.897);
 }
