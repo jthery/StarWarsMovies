@@ -11,5 +11,11 @@ body {
 body {
   margin: 0;
   color: #fff;
-  background-image: url(../src/assets/images/bg.jpg);
+  background-image: url(../src/assets/images/stars-bg.png);
+}
+
+h1, h3 {
+  text-align: center;
+  color: black;
+  text-shadow: 2px 0 0 #ffe81f, 0 2px 0 #ffe81f, 0 -2px 0 #ffe81f, -2px 0 0 #ffe81f, 2px 2px 0 #ffe81f, 2px -2px 0 #ffe81f, -2px 2px 0 #ffe81f, -2px -2px 0 #ffe81f;
 }

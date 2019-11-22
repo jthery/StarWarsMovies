@@ -3,6 +3,7 @@ import { FilmService } from '../../services/film.service';
 import { Observable } from 'rxjs';
 import { Film } from '../../models/film.model';
 import { PeopleService } from '../../services/people.service'
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-movie-select-component',
@@ -12,6 +13,7 @@ import { PeopleService } from '../../services/people.service'
 
 export class MovieSelectComponent implements OnInit {
 
+  // listP: People[] = [];
   films$: Observable<Film[]>;
   selectedFilm: string;
   message: string;
@@ -19,6 +21,7 @@ export class MovieSelectComponent implements OnInit {
   public show: boolean = false;
   public button: boolean = false;
   public loading: boolean = false;
+  public title: boolean = false;
 
   constructor(private filmService: FilmService, private peopleService: PeopleService) { }
 
@@ -42,16 +45,25 @@ export class MovieSelectComponent implements OnInit {
   toggle() {
     this.film = this.selectedFilm;
     this.peopleService.setListPeople(this.film.characters);
+    // if(this.selectedFilm) {
+    //   this.loading = true;
+    //   this.listP.length = 0;
+    //   this.film = this.selectedFilm;
+    //   this.peopleService.characters(this.film.characters).subscribe(data => {
+    //     this.listP = data;
+    //     this.loading = false;
+    //   });
+    // }
   }
 
   handleSuccess(data) {
     this.show = !this.show;
     this.button = !this.button;
-    this.message = 'Tous les films ont bien été récupéré'
   }
 
   handleError(error) {
     this.message = 'Nous rencontrons un léger problème, je vous invite à réessayer plus tard..'
+    this.loading = false;
   }
 
 }
