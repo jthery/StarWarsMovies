@@ -14,30 +14,13 @@ img {
 #container-select {
   width: 70%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   box-shadow: none;
-  border-top: 1px solid #ffe81f;
-  border-left: 1px solid #ffe81f;
-  border-right: 1px solid #ffe81f;
-  border-radius: 0;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-#container-button {
-  background-color: rgba(0, 0, 0, 0);
-  text-align: center;
-  width: 70%;
-  padding: 0 16px;
-  border-bottom: 1px solid #ffe81f;
-  border-left: 1px solid #ffe81f;
-  border-right: 1px solid #ffe81f;
-}
-
-#container-button button {
   border: 1px solid #ffe81f;
   border-radius: 0;
-  margin-bottom: 5px;
-  color: #ffe81f;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 #container-select mat-form-field {
@@ -47,6 +30,13 @@ img {
 #container-select mat-form-field mat-label {
   color: #e6e1b6c2;
 }
+
+::ng-deep .mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
+  color: #ffe81f;
+  border-radius: 0;
+  border: 1px solid #ffe81f;
+}
+
 
 /* CONTAINER LOADING */
 #container-loading {

@@ -1,10 +1,6 @@
 <div id="container">
   <img src="/assets/images/sw_logo.png" alt="logo_star_wars">
-  <div id="container-message">
-    <h3>
-      {{message}}
-    </h3>
-  </div>
+  <h3>{{message}}</h3>
   <mat-card id="container-select" *ngIf="(films$ | async) as films">
     <mat-form-field>
       <mat-label>Selectionner votre film</mat-label>
@@ -14,12 +10,9 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-  </mat-card>
-  <div id="container-button">
     <button mat-stroked-button color="primary" (click)="toggle()" *ngIf="button">Afficher</button>
-  </div>
+  </mat-card>
 </div>
-
 
 <div id="container-loading" *ngIf="loading">
   <img class="rotate-center" src="../../../assets/images/dark-vador.png" alt="dark-vador">
