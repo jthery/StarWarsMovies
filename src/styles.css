@@ -11,6 +11,5 @@ body {
 body {
   margin: 0;
   color: #fff;
-  background: radial-gradient(ellipse at bottom, #1C2837 0%, #050608 100%);
-  background-size: cover;
+  background-image: url(../src/assets/images/bg.jpg);
 }

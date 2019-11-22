@@ -5,7 +5,7 @@ import {
   MatCardModule,
   MatSelectModule,
   MatProgressBarModule,
-  MatTableModule
+  MatChipsModule
 } from '@angular/material';
 
 
@@ -17,14 +17,14 @@ import {
     MatCardModule,
     MatSelectModule,
     MatProgressBarModule,
-    MatTableModule
+    MatChipsModule
   ],
   exports: [
     MatButtonModule,
     MatCardModule,
     MatSelectModule,
     MatProgressBarModule,
-    MatTableModule
+    MatChipsModule
   ]
 })
 export class MaterialModule { }

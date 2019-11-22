@@ -3,7 +3,6 @@ import { FilmService } from '../../services/film.service';
 import { Observable } from 'rxjs';
 import { Film } from '../../models/film.model';
 import { PeopleService } from '../../services/people.service'
-import { resolve } from 'url';
 
 @Component({
   selector: 'app-movie-select-component',
@@ -24,9 +23,7 @@ export class MovieSelectComponent implements OnInit {
   constructor(private filmService: FilmService, private peopleService: PeopleService) { }
 
   ngOnInit() {
-    console.log(this.loading, 'c\' est mon loading')
     this.films();
-    console.log(this.loading, 'c\'est mon loading false')
   }
 
   films() {
@@ -43,18 +40,18 @@ export class MovieSelectComponent implements OnInit {
   }
 
   toggle() {
-    this.show = !this.show;
     this.film = this.selectedFilm;
     this.peopleService.setListPeople(this.film.characters);
   }
 
   handleSuccess(data) {
+    this.show = !this.show;
     this.button = !this.button;
     this.message = 'Tous les films ont bien été récupéré'
   }
 
   handleError(error) {
-    this.message = 'Nous rencontrons un léger problème, je vous invite à réessayer plus tard'
+    this.message = 'Nous rencontrons un léger problème, je vous invite à réessayer plus tard..'
   }
 
 }

@@ -1,4 +1,5 @@
 <div id="container">
+  <img src="../../../assets/images/Star_Wars_Logo.png" alt="logo_star_wars">
   <div id="container-message">
     <h1>
       {{message}}
@@ -6,7 +7,8 @@
   </div>
   <mat-card id="container-select" *ngIf="(films$ | async) as films">
     <mat-form-field>
-      <mat-select [(ngModel)]="selectedFilm" placeholder="Selectionner votre film">
+      <mat-label>Selectionner votre film</mat-label>
+      <mat-select [(ngModel)]="selectedFilm">
         <mat-option *ngFor="let f of films" [value]="f">
           {{f.title}}
         </mat-option>

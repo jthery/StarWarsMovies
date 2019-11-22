@@ -1,10 +1,22 @@
 <div>
-  <mat-card *ngFor="let p of people">
+  <mat-card *ngFor="let p of people" [ngSwitch]="p.gender">
     <mat-card-header>
-      <mat-card-title>Name : {{ p.name }}</mat-card-title>
+      <mat-card-title>{{ p.name  | uppercase }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      Civility : {{ p.gender }} - Birthday year : {{ p.birth_year }} - {{ p.height }}cm - hair color : {{ p.hair_color }} - eye color : {{ p.eye_color }}
+      <mat-chip-list aria-label="Details Characters">
+          <div>
+            <p>Sexe : </p><mat-chip *ngSwitchCase="'male'" color="accent" selected>M</mat-chip>
+            <mat-chip *ngSwitchCase="'female'" color="accent" selected>F</mat-chip>
+            <mat-chip *ngSwitchCase="'n/a'" color="accent" selected>N/A</mat-chip>
+            <mat-chip *ngSwitchCase="'none'" color="accent" selected>NONE</mat-chip>
+            <mat-chip *ngSwitchCase="'hermaphrodite'" color="accent" selected>H</mat-chip>
+          </div>
+          <div><p>Birthday : </p><mat-chip color="accent" selected>{{ p.birth_year | uppercase }}</mat-chip></div>
+          <div><p>Height : </p><mat-chip color="accent" selected>{{ p.height | uppercase }} cm</mat-chip></div>
+          <div><p>Hair color : </p><mat-chip color="accent" selected>{{ p.hair_color | uppercase}}</mat-chip></div>
+          <div><p>Eye color : </p><mat-chip color="accent" selected>{{ p.eye_color | uppercase }}</mat-chip></div>
+      </mat-chip-list>
     </mat-card-content>
   </mat-card>
 </div>

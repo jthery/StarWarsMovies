@@ -5,7 +5,9 @@
   <mat-card-content>
     {{filmDetails.opening_crawl}}
   </mat-card-content>
-  By: {{filmDetails.producer}}
-  Année de réalisation : {{filmDetails.release_date}}
+  <mat-chip-list aria-label="Details Film">
+    <mat-chip>By : {{filmDetails.producer}}</mat-chip>
+    <mat-chip>Année de réalisation : {{filmDetails.release_date}}</mat-chip>
+  </mat-chip-list>
 </mat-card>
 
