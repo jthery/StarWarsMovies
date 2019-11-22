@@ -3,7 +3,6 @@ import { FilmService } from '../../services/film.service';
 import { Observable } from 'rxjs';
 import { Film } from '../../models/film.model';
 import { PeopleService } from '../../services/people.service'
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-movie-select-component',
@@ -13,15 +12,12 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export class MovieSelectComponent implements OnInit {
 
-  // listP: People[] = [];
   films$: Observable<Film[]>;
   selectedFilm: string;
   message: string;
-  public film;
+  public printFilm;
   public show: boolean = false;
-  public button: boolean = false;
   public loading: boolean = false;
-  public title: boolean = false;
 
   constructor(private filmService: FilmService, private peopleService: PeopleService) { }
 
@@ -43,22 +39,12 @@ export class MovieSelectComponent implements OnInit {
   }
 
   toggle() {
-    this.film = this.selectedFilm;
-    this.peopleService.setListPeople(this.film.characters);
-    // if(this.selectedFilm) {
-    //   this.loading = true;
-    //   this.listP.length = 0;
-    //   this.film = this.selectedFilm;
-    //   this.peopleService.characters(this.film.characters).subscribe(data => {
-    //     this.listP = data;
-    //     this.loading = false;
-    //   });
-    // }
+    this.printFilm = this.selectedFilm;
+    this.peopleService.setListPeople(this.printFilm.characters);
   }
 
   handleSuccess(data) {
     this.show = !this.show;
-    this.button = !this.button;
   }
 
   handleError(error) {

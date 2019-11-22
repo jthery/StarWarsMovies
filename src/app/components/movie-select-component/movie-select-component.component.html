@@ -10,7 +10,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-stroked-button color="primary" (click)="toggle()" *ngIf="button">Afficher</button>
+    <button mat-stroked-button color="primary" (click)="toggle()">Afficher</button>
   </mat-card>
 </div>
 
@@ -20,8 +20,6 @@
 </div>
 
 <div id="container-child" *ngIf="show">
-  <h1>Détails du film</h1>
-  <app-movie-details-component [filmDetails]="film"></app-movie-details-component>
-  <h1>Détails des personnages jouant dans ce film</h1>
+  <app-movie-details-component [filmDetails]="printFilm"></app-movie-details-component>
   <app-movie-characters-component></app-movie-characters-component>
 </div>
