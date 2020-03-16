@@ -1,0 +1,17 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2      
+      
+    - name: Angular Github Actions
+      uses: mayur-rawte/github-angular-actions@latest
+      
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
